@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soal 3 - Form Data Mahasiswa</title>
+    <style>
+      .form-group {
+        margin-bottom: 8px;
+      }
+      .form-group label {
+        display: inline-block;
+        width: 220px;
+        vertical-align: top;
+      }
+      fieldset {
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Data Mahasiswa</h1>
+    <form action="#" method="POST" onsubmit="return cekHobi()">
+      <div class="form-group">
+        <label for="nim_id">NIM :</label>
+        <input type="text" name="nim_input" id="nim_id" required />
+      </div>
+      <div class="form-group">
+        <label for="nama_id">Nama :</label>
+        <input type="text" name="nama_input" id="nama_id" size="30" required />
+      </div>
+      <div class="form-group">
+        <label for="tgl_id">Tgl Lahir (dd-mm-yyyy) :</label>
+        <input type="date" name="tgl_input" id="tgl_id" required />
+      </div>
+      <fieldset>
+        <legend>Jenis Kelamin :</legend>
+        <input type="radio" name="jk_input" id="laki" value="Laki-Laki" required />
+        <label for="laki">Laki-Laki</label>
+        <input type="radio" name="jk_input" id="perempuan" value="Perempuan" />
+        <label for="perempuan">Perempuan</label>
+      </fieldset>
+      <div class="form-group">
+        <label for="alamat_id">Alamat di Bandung :</label>
+        <textarea name="alamat_input" id="alamat_id" rows="4" cols="30"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="tinggal_id">Tinggal di :</label>
+        <select name="tinggal_input" id="tinggal_id" required>
+          <option value="" selected>--pilih--</option>
+          <option value="Kos/Kontrakan">Kos/Kontrakan</option>
+          <option value="Rumah saudara">Rumah saudara</option>
+          <option value="Rumah orang tua">Rumah orang tua</option>
+        </select>
+      </div>
+      <fieldset>
+        <legend>Pilih 2 hobi yang paling disukai :</legend>
+        <div>
+          <input type="checkbox" name="hobi_input" id="science" value="Science" />
+          <label for="science">Science</label>
+        </div>
+        <div>
+          <input type="checkbox" name="hobi_input" id="technology" value="Technology" />
+          <label for="technology">Technology</label>
+        </div>
+        <div>
+          <input type="checkbox" name="hobi_input" id="art" value="Art" />
+          <label for="art">Art</label>
+        </div>
+        <div>
+          <input type="checkbox" name="hobi_input" id="sport" value="Sport" />
+          <label for="sport">Sport</label>
+        </div>
+      </fieldset>
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">Submit</button>
+        <button type="reset" class="btn-reset">Reset</button>
+      </div>
+    </form>
+
+    <script>
+      function cekHobi() {
+        var a = document.getElementById("science");
+        var b = document.getElementById("technology");
+        var c = document.getElementById("art");
+        var d = document.getElementById("sport");
+        var jumlah = 0;
+
+        if (a.checked) {
+          jumlah++;
+        }
+        if (b.checked) {
+          jumlah++;
+        }
+        if (c.checked) {
+          jumlah++;
+        }
+        if (d.checked) {
+          jumlah++;
+        }
+
+        if (jumlah !== 2) {
+          alert("Pilih tepat 2 hobi yang paling disukai!");
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>
